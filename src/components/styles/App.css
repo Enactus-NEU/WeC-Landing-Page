@@ -2,4 +2,21 @@
 
 * {
     font-family: 'Quicksand', sans-serif;
+    color: #173143;
+    font-size: 14px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.block {
+    width: 100%;
+    height: 78px;
+}
+
+@media (min-width: 750px) {
+    .ScrollToTop {
+        right: 30px;
+        bottom: 40px
+    }
 }

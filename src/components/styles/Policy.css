@@ -1,0 +1,68 @@
+.Policy {
+    margin: 30px 27px 50px 22px;
+    line-height: 20px;
+}
+/* heading styles */
+.Policy .heading {
+    font-weight: bold
+}
+
+.Policy .heading1 {
+    color: #01aa6e;
+    font-size: 27px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.Policy .heading2 {
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+.Policy .heading3 {
+    margin: 15px 0 6px 0
+}
+
+@media (min-width: 768px) {
+    * {
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .Policy {
+        margin: 30px 110px 50px 120px;
+    }
+}
+
+@media (min-width: 1000px) {
+    * {
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .Policy {
+        width: 60%;
+        margin: 30px auto;
+    }
+    .Policy .heading1 {
+        color: #01aa6e;
+        font-size: 40px;
+        margin-top: 60px;
+        margin-bottom: 30px;
+        text-align: left;
+    }
+    .Policy .heading2 {
+        font-size: 25px;
+    }
+    .Policy .heading3:first-child {
+        margin-top: 18px
+    }
+    .Policy .heading3 {
+        margin-top: 40px
+    }
+}
+
+@media (min-width: 1200px) {
+    .Policy {
+        width: 40%;
+        margin: 30px auto;
+    }
+}

@@ -1,0 +1,44 @@
+/* căn lề */
+.TableOfContent {
+    margin-left: 22px
+}
+
+.TableOfContent .wrap-heading2 {
+    margin-left: 8px;
+}
+
+.TableOfContent .wrap-heading3 {
+    margin-left: 14px;
+}
+
+/* style cho heading */
+.TableOfContent .heading {
+    margin: 7px 0
+}
+
+.TableOfContent .heading:active {
+    opacity: 0.7;
+}
+
+.TableOfContent  .heading1 {
+    color: #01aa6e;
+    font-weight: bold;
+    position: relative;
+}
+
+.TableOfContent  .heading2 {
+    font-weight: bold;
+}
+
+/* active của heading */
+/* heading 1 */
+.wrap-heading1 > .heading-active::before {
+    content: "";
+    width: 2px;
+    height: 20px;
+    position: absolute;
+    display: block;
+    background-color: #01aa6e;
+    left: -7px;
+    border-radius: 5px;
+}

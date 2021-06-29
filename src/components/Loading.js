@@ -1,32 +1,28 @@
 import React from 'react'
+import { BrowserRouter as Router } from "react-router-dom";
 
 export default function Loading(WithComp) {
     return class extends React.Component {
-        constructor(props) {
-            super(props)
-            this.state = {
-                isMount: false
-            }
+
+        async removeFadeOut( el, speed ) {
+            var seconds = speed/1000;
+            el.style.transition = "opacity "+seconds+"s ease";
+            el.style.opacity = 0;
+            await setTimeout(() => {
+                el.remove();
+            }, speed);
         }
+        
         componentDidMount() {
             const loading = document.getElementById('loading')
-            setTimeout(() => {
-                loading.remove()
-                this.setState({
-                    isMount: true
-                })
-            }, 1200)
+            this.removeFadeOut(loading, 500);
         }
+
         render() {
-            if (!this.state.isMount) {
-                return null
-            }
             return(
-                <div>
-                    <div class="Loading">
-                        <WithComp {...this.props} />
-                    </div>
-                </div>
+                <Router>
+                    <WithComp {...this.props} />
+                </Router>
             )
         }
     }
