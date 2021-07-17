@@ -16,6 +16,10 @@
     flex-grow: 1;
 }
 
+a.wrap:active {
+    opacity: 0.6;
+}
+
 .NavBar .wrap .Logo {
     width: 21px;
     height: 21px;
@@ -127,12 +131,10 @@
     }
 
     .NavBar .WrapBtnDesktop a:hover {
-        color: #01aa6e
-    }
-    
-    .NavBar .WrapBtnDesktop a:active {
+        color: #01aa6e;
         opacity: 1;
     }
+    
 }
 
 @media (min-width: 1000px) {
