@@ -1,12 +1,10 @@
 //components
-import React, { useEffect, useContext } from "react";
-import NavBar from "./components/NavBar"
+import React from "react";
+import NavBar from "./components/functions/NavBar"
 import TermOfUse from "./components/policy/TermOfUse"
 import PrivacyPolicy from "./components/policy/PrivacyPolicy";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/functions/ScrollToTop";
 
-import { LoadingContext } from "react-router-loading";
-import removeFadeOut from "./components/removeFadeOut";
 
 //css
 import "./components/styles/App.css"
@@ -21,98 +19,7 @@ import {
 import { Helmet } from "react-helmet-async";
 
 //addLoadingAndMoveToTop
-//set state child image loaded
-let imagePrivacyLoaded = false
-let imageTOULoaded = false
-
-function addLoadingAndMoveToTop(WithComp, className) {
-
-  return function(props) {
-    const loadingContext = useContext(LoadingContext);
-    
-    const onDone = () => {
-
-      //remove first loading screen
-      if ((className === "PrivacyPolicy" && imagePrivacyLoaded === true) || (className === "TOUPolicy" && imageTOULoaded === true)) {
-        loadingContext.done()
-        return;
-      }
-      const loadingScreen = document.getElementById("loading")
-      
-      if (loadingScreen) {
-        const removeLoadingScreen = () => {
-
-          removeFadeOut(loadingScreen, 500)
-          loadingContext.done()
-          if (className === "PrivacyPolicy") {
-            imagePrivacyLoaded = true
-          } else if (className === "TOUPolicy") {
-            imageTOULoaded = true
-          }
-          document.removeEventListener("readystatechange", removeLoadingScreen)
-        }
-
-        if (document.readyState === "complete") {
-          removeLoadingScreen()
-        }
-
-        document.addEventListener('readystatechange', () => {
-          document.readyState === "complete" && removeLoadingScreen()
-        });
-        
-        return;
-      } else { 
-        // callback when images are loaded
-
-        const imgs = document.querySelectorAll(`.${className} img`)
-        
-        let count = imgs.length;
-        
-        function loadImg() {
-          count--
-          if (count === 0) {
-            loadingContext.done()
-
-            if (className === "PrivacyPolicy") {
-              imagePrivacyLoaded = true
-            } else if (className === "TOUPolicy") {
-              imageTOULoaded = true
-            }
-          }
-        }
-
-        if (count !== 0) {
-          imgs.forEach((img) => {
-
-            img.addEventListener("load", () => {
-              loadImg()
-            })
-
-          })
-        } else {
-          loadingContext.done()
-          if (className === "PrivacyPolicy") {
-            imagePrivacyLoaded = true
-          } else if (className === "TOUPolicy") {
-            imageTOULoaded = true
-          }
-          return;
-        }
-      }
-    }
-
-    useEffect(() => {
-      //move to top
-      window.scrollTo(0, 0)
-
-      //remove loading screen
-      onDone()
-    // eslint-disable-next-line
-    }, [])
-    
-    return <WithComp {...props} />
-  }
-}
+import addLoadingAndMoveToTop from "./components/functions/addLoadingAndMoveToTop";
 
 function App() {
   //define component with LoadingAndMoveToTop function
