@@ -40,15 +40,6 @@ export default function NavBar(props) {
             Menu.current.style.top = '4px'
         }
     }
-    
-    function moveToTop() {
-        window.scrollTo({
-            top: 0, 
-            behavior: 'smooth'
-            /* you can also use 'auto' behaviour
-               in place of 'smooth' */
-        });
-    }
 
     useEffect(() => {
         window.addEventListener('scroll', () => { 
@@ -61,15 +52,15 @@ export default function NavBar(props) {
     return(
         <div>
             <div ref={NavBar} className="NavBar">
-                <Link onClick={moveToTop} className="wrap" to="/">
+                <Link className="wrap" to="/">
                     <div className="Logo" />
                     <div className="Name">WeCollect</div>
                 </Link>
                 <div className="WrapBtnDesktop">
-                    <Link className={!props.site ? "open" : undefined} onClick={moveToTop} to="/">Trang chủ</Link>
-                    <Link className={props.site === "about" ? "open" : undefined} onClick={moveToTop} to="/about">Giới thiệu</Link>
-                    <Link className={props.site === "termOfUse" ? "open" : undefined} onClick={moveToTop} to="/term-of-use">Điều khoản sử dụng</Link>
-                    <Link className={props.site === "privacyPolicy" ? "open" : undefined} onClick={moveToTop} to="/privacy-policy">Chính sách bảo mật</Link>
+                    <Link className={!props.site ? "open" : undefined} to="/">Trang chủ</Link>
+                    <Link className={props.site === "about" ? "open" : undefined} to="/about">Giới thiệu</Link>
+                    <Link className={props.site === "termOfUse" ? "open" : undefined} to="/term-of-use">Điều khoản sử dụng</Link>
+                    <Link className={props.site === "privacyPolicy" ? "open" : undefined} to="/privacy-policy">Chính sách bảo mật</Link>
                 </div>
                 <div className="WrapBtnPhone">
                     <div ref={PhoneBtn} onClick={wrapBtn} className="NavWrapMenuBtn">
@@ -80,7 +71,6 @@ export default function NavBar(props) {
                                 className={!props.site ? "open" : undefined}
                                 onClick={() => {
                                             wrapBtn()
-                                            moveToTop()
                                         }} 
                                 to="/"
                             >
@@ -90,7 +80,6 @@ export default function NavBar(props) {
                                 className={props.site === "about" ? "open" : undefined}
                                 onClick={() => {
                                             wrapBtn()
-                                            moveToTop()
                                         }} 
                                 to="/about"
                             >
@@ -100,7 +89,6 @@ export default function NavBar(props) {
                                 className={props.site === "termOfUse" ? "open" : undefined}
                                 onClick={() => {
                                             wrapBtn()
-                                            moveToTop()
                                         }} 
                                 to="/term-of-use"
                             >
@@ -110,7 +98,6 @@ export default function NavBar(props) {
                                 className={props.site === "privacyPolicy" ? "open" : undefined}
                                 onClick={() => {
                                             wrapBtn()
-                                            moveToTop()
                                         }} 
                                 to="/privacy-policy"
                             >

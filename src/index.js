@@ -1,13 +1,19 @@
 import React from 'react';
+
 import ReactDOM from 'react-dom';
+
 import './index.css';
+
+import { BrowserRouter as Router } from "react-router-dom";
+
 import App from './App';
+
 import reportWebVitals from './reportWebVitals';
-import Loading from "./components/Loading";
+
 import { HelmetProvider } from 'react-helmet-async';
+
 import TagManager from 'react-gtm-module'
 
-const AppWithLoading = Loading(App)
 
 // google tag manager ---> start
  
@@ -22,7 +28,9 @@ TagManager.initialize(tagManagerArgs)
 ReactDOM.render(
   <React.StrictMode>
     <HelmetProvider>
-      <AppWithLoading />
+    <Router>
+      <App />
+    </Router>
     </HelmetProvider>
   </React.StrictMode>,
   document.getElementById('wecollect-app')
