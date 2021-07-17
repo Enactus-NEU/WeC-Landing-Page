@@ -30,16 +30,14 @@ export default function addLoadingAndMoveToTop(WithComp, className) {
           } else if (className === "TOUPolicy") {
             imageTOULoaded = true
           }
-          document.removeEventListener("readystatechange", removeLoadingScreen)
+          window.removeEventListener("readystatechange", removeLoadingScreen)
         }
 
         if (document.readyState === "complete") {
           removeLoadingScreen()
         }
 
-        document.addEventListener('readystatechange', () => {
-          document.readyState === "complete" && removeLoadingScreen()
-        });
+        window.addEventListener('load', removeLoadingScreen);
         
         return;
       } else { 

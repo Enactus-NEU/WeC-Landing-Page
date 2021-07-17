@@ -21,6 +21,35 @@ a {
 @media (min-width: 750px) {
     .ScrollToTop {
         right: 30px;
-        bottom: 40px
+        bottom: 40px;
+        cursor: pointer
     }
+}
+
+body {
+	overflow-y: scroll;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  position: fixed;
+  right: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #173143;
+  opacity: 0;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #173143;
+  opacity: .5;
 }
